@@ -4,6 +4,7 @@ import productApi from 'api/productApi';
 import React, { useEffect, useState } from 'react';
 import ProductList from '../components/ProductList';
 import ProductSkeletonList from '../components/ProductSkeletonList';
+import ProductSort from '../components/ProductSort';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -15,20 +16,30 @@ const useStyles = makeStyles((theme) => ({
   right: {
     flex: '1 1 0',
   },
+
+  pagination: {
+    display: 'flex',
+    flexFlow: 'row nowrap',
+    justifyContent: 'center',
+
+    marginTop: '30px',
+    paddingBottom: '20px',
+  },
 }));
 
 function ListPage(props) {
   const classes = useStyles();
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
-    limit: 9,
+    limit: 12,
     total: 10,
     page: 1,
   });
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
     _page: 1,
-    _limit: 9,
+    _limit: 12,
+    _sort: 'salePrice:ASC'
   });
 
   useEffect(() => {
@@ -48,11 +59,16 @@ function ListPage(props) {
 
   const handlePageChange = (e, page) => {
     setFilters((prevFilters) => ({
-      ...prevFilters,
-      _page: page,
+      ...prevFilters, _page: page,
     }));
   };
 
+
+  const handleSortChange = (newSortValue) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters, _sort: newSortValue,
+    }));
+  };
   return (
     <Box>
       <Container>
@@ -62,15 +78,20 @@ function ListPage(props) {
           </Grid>
 
           <Grid item className={classes.right}>
-            <Paper elevation={0}>
-              {loading ? <ProductSkeletonList length={9} /> : <ProductList data={productList} />}
 
-              <Pagination
-                color="primary"
-                count={Math.ceil(pagination.total / pagination.limit)}
-                page={pagination.page}
-                onChange={handlePageChange}
-              ></Pagination>
+
+            <Paper elevation={0}>
+              <ProductSort currentSort={filters._sort} onChange={handleSortChange} />
+              {loading ? <ProductSkeletonList length={12} /> : <ProductList data={productList} />}
+
+              <Box className={classes.pagination}>
+                <Pagination
+                  color="primary"
+                  count={Math.ceil(pagination.total / pagination.limit)}
+                  page={pagination.page}
+                  onChange={handlePageChange}
+                ></Pagination>
+              </Box>
             </Paper>
           </Grid>
         </Grid>
