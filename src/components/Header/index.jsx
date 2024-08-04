@@ -84,17 +84,10 @@ export default function Header() {
 
           <Typography variant="h6" className={classes.title}>
             <Link className={classes.link} to="/">
-              EZ SHOP
+              SHOP
             </Link>
           </Typography>
 
-          <NavLink className={classes.link} to="/todos">
-            <Button color="inherit">Todos</Button>
-          </NavLink>
-
-          <NavLink className={classes.link} to="/albums">
-            <Button color="inherit">Albums</Button>
-          </NavLink>
 
           {!isLoggedIn && (
             <Button color="inherit" onClick={handleClickOpen}>
