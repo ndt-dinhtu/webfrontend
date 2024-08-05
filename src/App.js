@@ -3,7 +3,8 @@ import ProductFeature from 'features/Product';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound';
-import CounterFeature from './features/Counter';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Redirect from="/home" to="/" exact />
         <Redirect from="/post-list/:postId" to="/posts/:postId" exact />
 
-        <Route path="/" component={CounterFeature} exact />
+
         <Route path="/products" component={ProductFeature} />
         <Route component={NotFound} />
       </Switch>
