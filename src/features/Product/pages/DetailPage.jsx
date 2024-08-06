@@ -7,10 +7,15 @@ import ProductInfo from '../components/ProductInfo';
 import AddToCartForm from '../components/AddToCartForm';
 import ProductMenu from '../components/ProductMenu';
 import ProductDescription from '../components/ProductDescription';
+import { useDispatch } from 'react-redux';
+import { addToCart } from 'features/cart/cartSlice';
+import Header from 'components/Header/Header';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         paddingBottom: theme.spacing(3),
+        paddingTop: '30px',
+        marginTop: '100px'
     },
 
     left: {
@@ -35,6 +40,7 @@ function DetailPage() {
     const classes = useStyles();
     const { params: { productId }, url } = useRouteMatch();
     const { product, loading } = useProductDetail(productId);
+    const dispatch = useDispatch();
 
     if (loading) {
 
@@ -45,11 +51,17 @@ function DetailPage() {
         )
     }
 
-    const handleAddToCartSubmit = (formValues) => {
-
+    const handleAddToCartSubmit = ({ quantity }) => {
+        const action = addToCart({
+            id: product.id,
+            product,
+            quantity,
+        });
+        dispatch(action);
     };
     return (
         <Box className={classes.root}>
+            <Header />
             <Container>
                 <Paper elevation={0}>
                     <Grid container>

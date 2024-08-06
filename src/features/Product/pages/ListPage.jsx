@@ -9,8 +9,12 @@ import ProductFilters from '../components/ProductFilters';
 import FilterViewer from '../components/Filters/FilterViewer';
 import { useHistory, useLocation } from 'react-router';
 import queryString from 'query-string';
+import Header from 'components/Header/Header';
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    marginTop: '130px',
+    paddingTop: '20px'
+  },
 
   left: {
     width: '250px',
@@ -110,7 +114,8 @@ function ListPage(props) {
 
   return (
     <Box>
-      <Container>
+      <Header />
+      <Container className={classes.root}>
         <Grid container spacing={1}>
           <Grid item className={classes.left}>
             <Paper elevation={0}>

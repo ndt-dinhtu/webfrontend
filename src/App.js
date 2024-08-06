@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from 'page/HomePage';
 import Contact from 'page/Contact';
 import AboutUs from 'page/AboutUs';
+import Cart from 'features/cart/Cart';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products" component={ProductFeature} />
         <Route path='/contact' component={Contact} />
         <Route path='/about' component={AboutUs} />
+        <Route path="/cart" component={Cart} />
         <Route path='*' component={NotFound} />
       </Switch>
     </div>
