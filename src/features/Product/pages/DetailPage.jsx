@@ -1,13 +1,17 @@
-import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
+import { Box, Container, Grid, makeStyles, LinearProgress, Paper } from '@material-ui/core';
 import React from 'react';
+import { Route, Switch, useRouteMatch } from 'react-router';
 import ProductThumbnail from '../components/ProductThumbnail';
 import useProductDetail from '../hooks/useProductDetail';
-import { useRouteMatch } from 'react-router';
 import ProductInfo from '../components/ProductInfo';
 import AddToCartForm from '../components/AddToCartForm';
+import ProductMenu from '../components/ProductMenu';
+import ProductDescription from '../components/ProductDescription';
 
 const useStyles = makeStyles((theme) => ({
-    root: {},
+    root: {
+        paddingBottom: theme.spacing(3),
+    },
 
     left: {
         width: '400px',
@@ -19,18 +23,26 @@ const useStyles = makeStyles((theme) => ({
         flex: '1 1 0',
         padding: theme.spacing(1.5),
     },
+    loading: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+    },
 }));
 
 function DetailPage() {
     const classes = useStyles();
-    const {
-        params: { productId },
-    } = useRouteMatch();
+    const { params: { productId }, url } = useRouteMatch();
     const { product, loading } = useProductDetail(productId);
 
     if (loading) {
 
-        return <Box>Loading</Box>;
+        return (
+            <Box className={classes.loading}>
+                <LinearProgress />
+            </Box>
+        )
     }
 
     const handleAddToCartSubmit = (formValues) => {
@@ -42,7 +54,7 @@ function DetailPage() {
                 <Paper elevation={0}>
                     <Grid container>
                         <Grid item className={classes.left}>
-                            <ProductThumbnail product={{ product }} />
+                            <ProductThumbnail product={product} />
                         </Grid>
 
                         <Grid item className={classes.right}>
@@ -51,6 +63,17 @@ function DetailPage() {
                         </Grid>
                     </Grid>
                 </Paper>
+
+                <ProductMenu />
+
+                <Switch>
+                    <Route exact path={url}>
+                        <ProductDescription product={product} />
+                    </Route>
+                    {/* 
+                    <Route path={`${url}/additional`} component={ProductAdditional} />
+                    <Route path={`${url}/reviews`} component={ProductReviews} /> */}
+                </Switch>
             </Container>
         </Box>
     );
