@@ -34,7 +34,7 @@ function DetailPage() {
     }
 
     const handleAddToCartSubmit = (formValues) => {
-        console.log('Form submit', formValues);
+
     };
     return (
         <Box className={classes.root}>

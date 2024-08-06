@@ -1,5 +1,5 @@
 {
-  "name": "learn-reactjs",
+  "name": "Webfrontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +22,7 @@
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.15.5",
     "react-redux": "^7.2.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "3.4.3",
     "react-scroll-trigger": "^0.6.14",
     "reactstrap": "^9.2.2",
