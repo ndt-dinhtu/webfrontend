@@ -4,6 +4,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from 'components/Footer/Footer';
 
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         <Route path="/products" component={ProductFeature} />
         <Route component={NotFound} />
       </Switch>
+
+      <Footer />
     </div>
   );
 }

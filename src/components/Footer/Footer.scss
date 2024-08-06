@@ -1,0 +1,66 @@
+.footer {
+    background-color: #f8f9fa;
+    color: #343a40;
+    padding: 2rem 0;
+
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: #007bff;
+    }
+
+    a {
+        color: #343a40;
+        text-decoration: none;
+
+        &:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }
+    }
+
+    .newsletter-form {
+        display: flex;
+        flex-wrap: wrap;
+
+        input {
+            margin-right: 0.5rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        button {
+            margin-top: 0.5rem;
+        }
+    }
+
+    .social {
+        .social-icon {
+            margin-right: 1rem;
+            color: #343a40;
+            font-size: 1.5rem;
+
+            &:hover {
+                color: #007bff;
+            }
+        }
+    }
+
+    .payment-methods img,
+    .shipping-methods img {
+        max-width: 50px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footerText {
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 20px;
+    }
+}

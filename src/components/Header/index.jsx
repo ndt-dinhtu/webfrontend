@@ -23,6 +23,10 @@ import {
   NavItem,
   NavLink,
   Container,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from 'reactstrap';
 
 const useStyles = makeStyles((theme) => ({
@@ -110,6 +114,15 @@ export default function Header() {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
+
+  const listCatagories = [
+    { id: 1, name: 'Thời trang' },
+    { id: 2, name: 'Khẩu trang' },
+    { id: 3, name: 'Làm đẹp' },
+    { id: 4, name: 'LapTop' },
+    { id: 5, name: 'Ổ cứng' },
+    { id: 6, name: 'Điện thoại' },
+  ]
   return (
     <>
       <div className={classes.root}>
@@ -218,9 +231,25 @@ export default function Header() {
               <NavItem>
                 <NavLink href="/home">TRANG CHỦ</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="/products">SẢN PHẨM</NavLink>
-              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  DANH MỤC SẢN PHẨM
+                </DropdownToggle>
+                <DropdownMenu right>
+                  {listCatagories.map(item => (
+                    <DropdownItem key={item.id}>
+                      <NavItem>
+                        <NavLink
+                          href={`/products?_sort=salePrice%3AASC&category.id=${item.id}`}
+                          activeClassName="active-link"
+                        >
+                          {item.name}
+                        </NavLink>
+                      </NavItem>
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              </UncontrolledDropdown>
               <NavItem>
                 <NavLink href="/products">TIN TỨC</NavLink>
               </NavItem>
@@ -234,7 +263,7 @@ export default function Header() {
             </Nav>
           </Collapse>
         </Navbar>
-      </Container>
+      </Container >
     </>
   );
 }
