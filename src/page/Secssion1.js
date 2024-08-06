@@ -7,10 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import CountUp from 'react-countup';
-import Sec1 from '../../assets/secssion1_1.png';
-import Sec2 from '../../assets/secssion1_2.png';
-import Sec3 from '../../assets/secssion1_3.png';
-import Sec4 from '../../assets/secssion1_4.png';
+import Sec1 from '../assets/secssion1_1.png';
+import Sec2 from '../assets/secssion1_2.png';
+import Sec3 from '../assets/secssion1_3.png';
+import Sec4 from '../assets/secssion1_4.png';
 import { Container } from '@material-ui/core';
 import ScrollTrigger from 'react-scroll-trigger';
 
@@ -53,7 +53,7 @@ export default function Secssion1() {
 
     return (
         <Container>
-            <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)} >
+            <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)}>
                 <Grid container spacing={4} className={classes.gridContainer}>
                     {imageList.map((image) => (
                         <Grid item xs={6} md={3} key={image.id}>

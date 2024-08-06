@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Tab, Tabs } from '@material-ui/core';
-import { current } from '@reduxjs/toolkit';
+// import { current } from '@reduxjs/toolkit';
 
 ProductSort.propTypes = {
     currentSort: PropTypes.string.isRequired,

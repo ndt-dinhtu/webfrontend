@@ -20,12 +20,12 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col md="4" className="footer-section">
-                        <div class="d-flex justify-content-center">
-                            <img src={logo} alt="Webtaphoa" width='50%' class="img-fluid" />
+                        <div className="d-flex justify-content-center">
+                            <img src={logo} alt="Webtaphoa" width='50%' className="img-fluid" />
                         </div>
 
                         <p>
-                            <i class="fa-solid fa-location-dot m-2"></i>
+                            <i className="fa-solid fa-location-dot m-2"></i>
                             CÔNG TY TRÁCH NHIỆM HỮU HẠN TẠP HÓA VIỆT - Mã số doanh nghiệp:
                             0315923957 do Sở Kế hoạch & Đầu tư TP Hồ Chí Minh cấp lần đầu
                             ngày 26/09/2019
@@ -35,29 +35,24 @@ const Footer = () => {
                             thoại liên hệ: 0919221843
                         </p>
                         <p>- Địa Chỉ: 72 Hưng Phú, Phường 8, Quận 8, TP. Hồ Chí Minh</p>
-                        <p><i class="fa-solid fa-phone m-2"></i>0919221843</p>
-                        <p><i class="fa-solid fa-envelope m-2"></i>webtaphoa.vn@gmail.com</p>
+                        <p><i className="fa-solid fa-phone m-2"></i>0919221843</p>
+                        <p><i className="fa-solid fa-envelope m-2"></i>webtaphoa.vn@gmail.com</p>
                     </Col>
                     <Col md="2" className="footer-section">
                         <h5 className="footer-title">Hướng Dẫn</h5>
                         <ul className="list-unstyled">
-                            <li><a href="#">Kiểm Tra Đơn Hàng</a></li>
-                            <li><a href="#">Tìm Sản Phẩm</a></li>
-                            <li><a href="#">Hướng Dẫn Mua Hàng</a></li>
+
                         </ul>
                     </Col>
                     <Col md="2" className="footer-section">
                         <h5 className="footer-title">Chính Sách</h5>
                         <ul className="list-unstyled">
-                            <li><a href="#">Chính Sách Đổi Trả</a></li>
-                            <li><a href="#">Chính Sách Giao Hàng</a></li>
-                            <li><a href="#">Chính Sách Bảo Mật</a></li>
-                            <li><a href="#">Chính Sách Thanh Toán</a></li>
+
                         </ul>
                     </Col>
                     <Col md="4" className="footer-section">
                         <h5 className="footer-title">Đăng Ký Nhận Tin Khuyến Mãi</h5>
-                        <Form inline>
+                        <Form >
                             <FormGroup className="newsletter-form">
                                 <Input
                                     type="email"
@@ -69,19 +64,19 @@ const Footer = () => {
                             </FormGroup>
                         </Form>
                         <div className="social mt-3">
-                            <a href="#" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-                            <a href="#" className="social-icon"><i className="fab fa-instagram"></i></a>
-                            <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
-                            <a href="#" className="social-icon"><i className="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-youtube"></i></a>
                         </div>
                         <div className="mt-3">
                             <iframe
                                 width="100%"
                                 src="https://www.youtube.com/embed/pw8V13AIQVI"
                                 title="Mẫu video giới thiệu Doanh nghiệp (DN 29)"
-                                frameborder="0" allow="accelerometer; autoplay;
+                                frameBorder="0" allow="accelerometer; autoplay;
                              clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerpolicy="strict-origin-when-cross-origin">
+                                referrerPolicy="strict-origin-when-cross-origin">
                             </iframe>
                         </div>
                     </Col>

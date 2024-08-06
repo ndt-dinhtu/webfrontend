@@ -9,15 +9,15 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
-          <App />
-        </SnackbarProvider>
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>,
+
+  <Provider store={store}>
+    <BrowserRouter>
+      <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <App />
+      </SnackbarProvider>
+    </BrowserRouter>
+  </Provider>
+  ,
   document.getElementById('root')
 );
 

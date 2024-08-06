@@ -1,0 +1,35 @@
+.carosel {
+    padding-top: 110px;
+
+    img {
+        transform: translateY(40px);
+        width: 100%;
+
+        &.imgBackGround {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+    }
+
+    .carousel {
+        transform: translateY(-10%);
+
+        .carousel-indicators [data-bs-target] {
+            height: 0.7rem;
+            width: 0.7rem;
+            border-radius: 50%;
+            border: 3px solid black;
+        }
+
+        a.carousel-control-next {
+            display: none !important;
+        }
+
+        a.carousel-control-prev {
+            display: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

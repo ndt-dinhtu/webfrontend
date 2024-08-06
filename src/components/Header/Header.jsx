@@ -264,9 +264,9 @@ export default function Header() {
                 <DropdownToggle nav caret className={classes.navLink}>
                   DANH MỤC SẢN PHẨM
                 </DropdownToggle>
-                <DropdownMenu right>
-                  {listCatagories.map((item) => (
-                    <DropdownItem key={item.id}>
+                <DropdownMenu end>
+                  {listCatagories.map((item, index) => (
+                    <DropdownItem key={index}>
                       <NavItem>
                         <Link
                           to={`/products?_sort=salePrice%3AASC&category.id=${item.id}`}
