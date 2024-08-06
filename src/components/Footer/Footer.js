@@ -11,6 +11,7 @@ import thanhtoan3 from '../../assets/phuongthucthanhtoan_3.png'
 import thanhtoan4 from '../../assets/phuongthucthanhtoan_4.png'
 import thanhtoan5 from '../../assets/phuongthucthanhtoan_5.png'
 import bocongthuong from '../../assets/bocongthuong.png'
+import logo from '../../assets/logo.png'
 
 
 const Footer = () => {
@@ -19,7 +20,10 @@ const Footer = () => {
             <Container>
                 <Row>
                     <Col md="4" className="footer-section">
-                        <h5 className="footer-title">Webtaphoa</h5>
+                        <div class="d-flex justify-content-center">
+                            <img src={logo} alt="Webtaphoa" width='50%' class="img-fluid" />
+                        </div>
+
                         <p>
                             <i class="fa-solid fa-location-dot m-2"></i>
                             CÔNG TY TRÁCH NHIỆM HỮU HẠN TẠP HÓA VIỆT - Mã số doanh nghiệp:
