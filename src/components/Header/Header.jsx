@@ -13,15 +13,13 @@ import { logout } from 'features/Auth/userSlice';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import "./styles.scss"
+import logo from '../../assets/logo.png'
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Container,
   UncontrolledDropdown,
   DropdownToggle,
@@ -30,6 +28,14 @@ import {
 } from 'reactstrap';
 
 const useStyles = makeStyles((theme) => ({
+  header: {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    zIndex: 1000,
+    backgroundColor: '#fff',
+    borderBottom: '1px solid #ccc',
+  },
   root: {
     flexGrow: 1,
   },
@@ -42,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: '#fff',
     textDecoration: 'none',
+  },
+  img: {
+    width: '20%'
   },
 
   closeButton: {
@@ -72,6 +81,25 @@ const useStyles = makeStyles((theme) => ({
       width: '800px',
     },
   },
+  navLink: {
+    color: '#000',
+    textDecoration: 'none',
+    padding: '0.5rem 1rem',
+    display: 'inline-block',
+    '&:hover': {
+      color: '#007bff',
+      backgroundColor: '#e2e6ea'
+    },
+    '&.active': {
+      fontWeight: 'bold',
+      color: '#007bff',
+    },
+  },
+  header2: {
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '10px 0',
+  }
 
 }));
 
@@ -124,17 +152,16 @@ export default function Header() {
     { id: 6, name: 'Điện thoại' },
   ]
   return (
-    <>
+    <div className={classes.header}>
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-
-
-            <Typography variant="h6" className={classes.title}>
-              <Link className={classes.link} to="/">
-                PRODUCT
+            <span className={classes.img}>
+              <Link to="/">
+                <img src={logo} alt='logo' width="60%" />
               </Link>
-            </Typography>
+            </span>
+
             <Typography variant="h6" className={classes.title}>
               <Link className={classes.link} to="">
                 <div className={classes.search}>
@@ -223,47 +250,54 @@ export default function Header() {
           </DialogContent>
         </Dialog>
       </div>
-      <Container>
-        <Navbar color="faded" light expand='md'>
+      <Container className={classes.header2}>
+        <Navbar color="faded" light expand="md">
           <NavbarToggler onClick={toggleNavbar} className="me-2" />
           <Collapse isOpen={!collapsed} navbar>
             <Nav navbar>
               <NavItem>
-                <NavLink href="/home">TRANG CHỦ</NavLink>
+                <Link to="/home" className={classes.navLink}>
+                  TRANG CHỦ
+                </Link>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle nav caret className={classes.navLink}>
                   DANH MỤC SẢN PHẨM
                 </DropdownToggle>
                 <DropdownMenu right>
-                  {listCatagories.map(item => (
+                  {listCatagories.map((item) => (
                     <DropdownItem key={item.id}>
                       <NavItem>
-                        <NavLink
-                          href={`/products?_sort=salePrice%3AASC&category.id=${item.id}`}
-                          activeClassName="active-link"
+                        <Link
+                          to={`/products?_sort=salePrice%3AASC&category.id=${item.id}`}
+                          className={classes.navLink}
                         >
                           {item.name}
-                        </NavLink>
+                        </Link>
                       </NavItem>
                     </DropdownItem>
                   ))}
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink href="/products">TIN TỨC</NavLink>
+                <Link to="/news" className={classes.navLink}>
+                  TIN TỨC
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/products">GIỚI THIỆU</NavLink>
+                <Link to="/about" className={classes.navLink}>
+                  GIỚI THIỆU
+                </Link>
               </NavItem>
               <NavItem>
-                <NavLink href="/products">LIÊN LẠC</NavLink>
+                <Link to="/contact" className={classes.navLink}>
+                  LIÊN LẠC
+                </Link>
               </NavItem>
-
             </Nav>
           </Collapse>
         </Navbar>
-      </Container >
-    </>
+      </Container>
+    </div>
   );
 }
