@@ -7,6 +7,7 @@ import HomePage from 'page/HomePage';
 import Contact from 'page/Contact';
 import AboutUs from 'page/AboutUs';
 import Cart from 'features/cart/Cart';
+import News from 'page/News';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/contact' component={Contact} />
         <Route path='/about' component={AboutUs} />
         <Route path="/cart" component={Cart} />
+        <Route path="/news" component={News} />
         <Route path='*' component={NotFound} />
       </Switch>
     </div>
