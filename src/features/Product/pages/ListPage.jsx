@@ -10,6 +10,7 @@ import FilterViewer from '../components/Filters/FilterViewer';
 import { useHistory, useLocation } from 'react-router';
 import queryString from 'query-string';
 import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: '130px',
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   left: {
-    width: '250px',
+    width: '200px',
   },
 
   right: {
@@ -124,8 +125,6 @@ function ListPage(props) {
           </Grid>
 
           <Grid item className={classes.right}>
-
-
             <Paper elevation={0}>
               <ProductSort currentSort={queryParams._sort} onChange={handleSortChange} />
               <FilterViewer filters={queryParams} onChange={setNewFilters} />
@@ -143,6 +142,7 @@ function ListPage(props) {
           </Grid>
         </Grid>
       </Container>
+      <Footer />
     </Box>
   );
 }

@@ -5,9 +5,15 @@ import React from 'react';
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: theme.spacing(2),
-        borderTop: `1px solid ${theme.palette.grey[300]}`,
+        border: '1px solid blue',
+        borderRadius: '10px',
+        marginBottom: '10px'
     },
-
+    title: {
+        fontWeight: 'bold',
+        color: 'blue',
+        fontSize: '1.1rem'
+    },
     list: {
         padding: 0,
         margin: 0,
@@ -36,7 +42,7 @@ function FilterByService({ filters = {}, onChange }) {
 
     return (
         <Box className={classes.root}>
-            <Typography variant="subtitle2">DỊCH VỤ</Typography>
+            <Typography variant="subtitle2" className={classes}>DỊCH VỤ</Typography>
 
             <ul className={classes.list}>
                 {[

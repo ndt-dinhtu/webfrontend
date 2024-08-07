@@ -2,10 +2,18 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography, makeStyles } from '@material-ui/core';
 import categoryApi from 'api/categoryApi';
-
+import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
     root: {
         padding: theme.spacing(2),
+        border: '1px solid blue',
+        borderRadius: '10px',
+        marginBottom: '10px'
+    },
+    title: {
+        fontWeight: 'bold',
+        color: 'blue',
+        fontSize: '1.1rem'
     },
 
     menu: {
@@ -15,11 +23,13 @@ const useStyles = makeStyles((theme) => ({
 
         '& > li': {
             marginTop: theme.spacing(1),
+            marginLeft: '15px',
             transition: 'all .25s',
 
             '&:hover': {
-                color: theme.palette.primary.dark,
+                color: 'blue',
                 cursor: 'pointer',
+                transform: 'scale(1.1)'
             },
         },
     },
@@ -57,9 +67,10 @@ function FilterByCategory({ onChange }) {
 
     return (
         <Box className={classes.root}>
-            <Typography variant="subtitle2">DANH MỤC SẢN PHẨM</Typography>
+            <Typography variant="subtitle2" className={classes.title}>DANH MỤC SẢN PHẨM</Typography>
 
             <ul className={classes.menu}>
+                <li><Link to='/products' >Tất cả sản phẩm</Link></li>
                 {categoryList.map((category) => (
                     <li key={category.id} onClick={() => handleCategoryClick(category)}>
                         <Typography variant="body2">{category.name}</Typography>

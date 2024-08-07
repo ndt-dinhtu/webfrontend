@@ -64,10 +64,10 @@ const Footer = () => {
                             </FormGroup>
                         </Form>
                         <div className="social mt-3">
-                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-facebook-f"></i></a>
-                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-instagram"></i></a>
-                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-twitter"></i></a>
-                            <a href="https://www.facebook.com/" className="social-icon"><i className="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/" target='_blank' rel="noopener noreferrer" className="social-icon"><i className="fab fa-facebook-f" style={{ color: '#3B5998' }}></i></a>
+                            <a href="https://www.facebook.com/" target='_blank' rel="noopener noreferrer" className="social-icon"><i className="fab fa-instagram" style={{ color: '#8A3AB9' }}></i></a>
+                            <a href="https://www.facebook.com/" target='_blank' rel="noopener noreferrer" className="social-icon"><i className="fab fa-twitter" style={{ color: '#1DA1F2' }}></i></a>
+                            <a href="https://www.facebook.com/" target='_blank' rel="noopener noreferrer" className="social-icon"><i className="fab fa-youtube" style={{ color: '#EA4335' }}></i></a>
                         </div>
                         <div className="mt-3">
                             <iframe
