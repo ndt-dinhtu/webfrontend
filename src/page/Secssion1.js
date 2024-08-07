@@ -16,11 +16,21 @@ import ScrollTrigger from 'react-scroll-trigger';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        border: '1px solid blue',
+        padding: '15px',
+        borderRadius: '15px',
+        marginTop: '50px',
+        boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
+
+    },
+
+    itemSecssion: {
         maxWidth: 345,
         margin: 'auto',
+        padding: '10px',
         transition: 'transform 0.3s',
         '&:hover': {
-            transform: 'scale(1.1)',
+            transform: 'scale(1.05)',
         },
 
     },
@@ -52,33 +62,35 @@ export default function Secssion1() {
     const [counter, setCounter] = useState(false)
 
     return (
-        <Container>
-            <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)}>
-                <Grid container spacing={4} className={classes.gridContainer}>
-                    {imageList.map((image) => (
-                        <Grid item xs={6} md={3} key={image.id}>
-                            <Card className={classes.root}>
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        className={classes.media}
-                                        image={image.src}
-                                        title={image.title}
-                                    />
-                                    <CardContent>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            {counter && <CountUp className={classes.title} end={image.end} duration={4} suffix={image.begin} />}
-                                        </Typography>
-                                        <Typography variant="body2" color="textSecondary" component="p">
-                                            {image.description}
-                                        </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid>
-                    ))}
-                </Grid>
-            </ScrollTrigger>
+        <Container >
+            <div className={classes.root}>
+                <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)}>
+                    <Grid container spacing={4} className={classes.gridContainer}>
+                        {imageList.map((image) => (
+                            <Grid item xs={6} md={3} key={image.id}>
+                                <Card className={classes.itemSecssion}>
+                                    <CardActionArea>
+                                        <CardMedia
+                                            component="img"
+                                            className={classes.media}
+                                            image={image.src}
+                                            title={image.title}
+                                        />
+                                        <CardContent>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {counter && <CountUp className={classes.title} end={image.end} duration={4} suffix={image.begin} />}
+                                            </Typography>
+                                            <Typography variant="body2" color="textSecondary" component="p">
+                                                {image.description}
+                                            </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </ScrollTrigger>
+            </div>
         </Container>
     );
 }

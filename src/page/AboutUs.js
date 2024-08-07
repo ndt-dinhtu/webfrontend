@@ -64,15 +64,15 @@ const useStyles = makeStyles((theme) => ({
             opacity: 1,
         },
         "50%": {
-            opacity: 0,
+            opacity: 0.7,
         },
     },
     "@keyframes moveUpDown": {
         "0%, 100%": {
-            transform: 'translateY(0)',
+            transform: 'scale(1.5)',
         },
         "50%": {
-            transform: 'translateY(-5px)',
+            transform: 'scale(2)',
         },
     },
     gridContainer: {

@@ -1,8 +1,8 @@
-import { Box, Button, Typography, makeStyles } from '@material-ui/core';
+import { Box, Typography, makeStyles } from '@material-ui/core';
 import Product from 'features/Product/components/Product';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Container } from 'reactstrap';
+import { Button, Container } from 'reactstrap';
 
 const useStyles = makeStyles((theme) => ({
     root: {
