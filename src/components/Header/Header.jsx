@@ -66,7 +66,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'transparent',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
-
     },
   },
   iconButton: {
@@ -100,14 +99,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+  const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id;
   const cartItemsCount = useSelector(cartItemsCountSelector);
-  const history = useHistory();
 
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -126,15 +127,24 @@ const Header = () => {
   };
 
   const handleLogoutClick = () => {
-    const action = logout();
-    dispatch(action);
+    dispatch(logout());
   };
 
   const handleCartClick = () => {
     history.push('/cart');
   };
 
-  const classes = useStyles();
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      history.push(`/search?q=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
 
   return (
     <div className={classes.header}>
@@ -151,13 +161,16 @@ const Header = () => {
 
             <Typography variant="h6" className={classes.title}>
               <div className={classes.search}>
-                <i className={`fa fa-search ${classes.iconButton}`}></i>
+                <i className={`fa fa-search ${classes.iconButton}`} onClick={handleSearch}></i>
                 <input
                   type="text"
                   placeholder="Search and hit enter..."
                   className={classes.input}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onKeyDown={handleKeyDown}
                 />
-                <Button color='primary'>Full</Button>
+                <Button color='primary' onClick={handleSearch}>Search</Button>
               </div>
             </Typography>
 
