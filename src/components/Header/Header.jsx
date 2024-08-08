@@ -27,6 +27,7 @@ import {
   DropdownItem,
 } from 'reactstrap';
 import { cartItemsCountSelector } from 'features/cart/selectors';
+import Head from './Head';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -159,6 +160,8 @@ export default function Header() {
   };
   return (
     <div className={classes.header}>
+      <Head />
+
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
@@ -171,15 +174,11 @@ export default function Header() {
             <Typography variant="h6" className={classes.title}>
               <Link className={classes.link} to="">
                 <div className={classes.search}>
-                  <InputBase className={classes.input}
-                    autoFocus
-                    placeholder="Nhập nội dung cần tìm…"
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput,
-                    }}
-                    inputProps={{ 'aria-label': 'search' }}
-                  />
+                  <div className='search-box f_flex'>
+                    <i className='fa fa-search'></i>
+                    <input type='text' placeholder='Search and hit enter...' />
+                    <span>All Category</span>
+                  </div>
                 </div>
               </Link>
             </Typography>
