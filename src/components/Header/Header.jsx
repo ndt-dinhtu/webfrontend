@@ -10,6 +10,7 @@ import logo from '../../assets/logo.png';
 import Head from './Head';
 import LoginDialog from './LoginDialog';
 import NavBarHeader from './NavBarHeader';
+import Search from 'components/search/Search';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -108,7 +109,7 @@ const Header = () => {
 
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
+
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -134,17 +135,7 @@ const Header = () => {
     history.push('/cart');
   };
 
-  const handleSearch = () => {
-    if (searchTerm.trim()) {
-      history.push(`/search?q=${encodeURIComponent(searchTerm)}`);
-    }
-  };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
 
   return (
     <div className={classes.header}>
@@ -161,18 +152,11 @@ const Header = () => {
 
             <Typography variant="h6" className={classes.title}>
               <div className={classes.search}>
-                <i className={`fa fa-search ${classes.iconButton}`} onClick={handleSearch}></i>
-                <input
-                  type="text"
-                  placeholder="Search and hit enter..."
-                  className={classes.input}
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyDown={handleKeyDown}
-                />
-                <Button color='primary' onClick={handleSearch}>Search</Button>
+
+                <Search />
               </div>
             </Typography>
+
 
             <IconButton aria-label="cart" color="inherit" onClick={handleCartClick}>
               <Badge badgeContent={cartItemsCount} color="secondary">
