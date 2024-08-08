@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Redirect, Switch, useLocation } from 'react-router-dom';
 import NotFound from './components/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from 'page/HomePage';
@@ -11,6 +11,12 @@ import ProductFeature from 'features/Product';
 import ScrollToTop from 'components/scrollToTop/ScrollToTop';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="app">
       <ScrollToTop />

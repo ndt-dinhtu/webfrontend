@@ -63,38 +63,41 @@ function CarouselHome(args) {
     ));
 
     return (
-        <div className='carosel'>
-            <img className='imgBackGround' src={logoBackGround} alt='background' />
-            <div className='carousel'>
-                <Container>
-                    <Carousel
-                        activeIndex={activeIndex}
-                        next={next}
-                        previous={previous}
-                        {...args}
-                        keyboard
-                        interval={3000}
-                    >
-                        <CarouselIndicators
-                            items={items}
-                            activeIndex={activeIndex}
-                            onClickHandler={goToIndex}
-                        />
-                        {slides}
-                        <CarouselControl
-                            direction="prev"
-                            directionText="Previous"
-                            onClickHandler={previous}
-                        />
-                        <CarouselControl
-                            direction="next"
-                            directionText="Next"
-                            onClickHandler={next}
-                        />
-                    </Carousel>
-                </Container>
-            </div>
-        </div>
+        // <div className='carosel'>
+        //     <img className='imgBackGround' src={logoBackGround} alt='background' />
+        //     <div className='carousel'>
+        //         <Container>
+        //             <Carousel
+        //                 activeIndex={activeIndex}
+        //                 next={next}
+        //                 previous={previous}
+        //                 {...args}
+        //                 keyboard
+        //                 interval={3000}
+        //             >
+        //                 <CarouselIndicators
+        //                     items={items}
+        //                     activeIndex={activeIndex}
+        //                     onClickHandler={goToIndex}
+        //                 />
+        //                 {slides}
+        //                 <CarouselControl
+        //                     direction="prev"
+        //                     directionText="Previous"
+        //                     onClickHandler={previous}
+        //                 />
+        //                 <CarouselControl
+        //                     direction="next"
+        //                     directionText="Next"
+        //                     onClickHandler={next}
+        //                 />
+        //             </Carousel>
+        //         </Container>
+        //     </div>
+        // </div>
+        <>
+
+            â</>
     );
 }
 
