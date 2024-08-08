@@ -10,53 +10,59 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: '#0f3460',
         color: '#fff',
         borderBottom: '1px solid #ccc',
-        padding: '10px 0',
+        padding: '5px 0', 
     },
     container: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '100%',
-        padding: '0 20px',
+        width: '60%', 
+        margin: '0 auto', 
         boxSizing: 'border-box',
     },
     left: {
         display: 'flex',
         alignItems: 'center',
-        flexWrap: 'wrap', // Cho phép phần tử cuộn xuống nếu cần
+        flexWrap: 'wrap',
     },
     right: {
         display: 'flex',
         alignItems: 'center',
-        flexWrap: 'wrap', // Cho phép phần tử cuộn xuống nếu cần
+        flexWrap: 'wrap',
     },
     icon: {
-        margin: '0 10px',
+        margin: '0 5px', 
+        fontSize: '12px', 
     },
     label: {
-        margin: '0 10px',
+        margin: '0 5px',
+        fontSize: '12px', 
     },
     // Responsive Styles
     '@media (max-width: 768px)': {
         container: {
-            flexDirection: 'column', // Đặt các phần tử thành cột trên màn hình nhỏ
-            alignItems: 'flex-start', // Căn các phần tử sang bên trái
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            width: '80%', 
         },
         left: {
-            justifyContent: 'flex-start', // Đưa các phần tử bên trái ra bên trái trên màn hình nhỏ
-            marginBottom: '10px', // Thêm khoảng cách giữa các phần tử
+            justifyContent: 'flex-start',
+            marginBottom: '5px',
         },
         right: {
-            justifyContent: 'flex-start', // Đưa các phần tử bên phải ra bên trái trên màn hình nhỏ
+            justifyContent: 'flex-start',
         },
     },
     '@media (max-width: 480px)': {
+        container: {
+            width: '90%', 
+        },
         icon: {
-            fontSize: '14px', // Giảm kích thước biểu tượng trên màn hình rất nhỏ
+            fontSize: '10px', 
         },
         label: {
-            fontSize: '14px', // Giảm kích thước chữ trên màn hình rất nhỏ
-            margin: '0 5px', // Giảm khoảng cách giữa các nhãn
+            fontSize: '10px', 
+            margin: '0 3px', 
         },
     },
 }));
@@ -69,13 +75,13 @@ const Head = () => {
             <div className={classes.container}>
                 <div className={classes.left}>
                     <i className={`fa fa-phone ${classes.icon}`}></i>
-                    <label className={classes.label}> +84 379 3300 60</label>
+                    <label className={classes.label}>+84 379 3300 60</label>
                     <i className={`fa fa-envelope ${classes.icon}`}></i>
-                    <label className={classes.label}> ndt.290303060703@gmail.com</label>
+                    <label className={classes.label}>ndt.290303060703@gmail.com</label>
                 </div>
                 <div className={classes.right}>
-                    <label className={classes.label}>Theme FAQ"s</label>
-                    <label className={classes.label}>Need Help?</label>
+                    <label className={classes.label}>FAQ's</label>
+                    <label className={classes.label}>Help?</label>
                     <span role="img" aria-label="transgender flag" className={classes.label}>🏳️‍⚧️</span>
                     <label className={classes.label}>EN</label>
                     <span role="img" aria-label="transgender flag" className={classes.label}>🏳️‍⚧️</span>

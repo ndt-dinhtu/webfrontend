@@ -1,4 +1,3 @@
-import ProductFeature from 'features/Product';
 import React from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound';
@@ -8,11 +7,14 @@ import Contact from 'page/Contact';
 import AboutUs from 'page/AboutUs';
 import Cart from 'features/cart/Cart';
 import News from 'page/News';
-
+import ProductFeature from 'features/Product';
+import ScrollToTop from 'components/scrollToTop/ScrollToTop';
 
 function App() {
   return (
     <div className="app">
+      <ScrollToTop />
+
       <Switch>
         <Redirect from="/home" to="/" exact />
         <Route exact path='/' component={HomePage} />

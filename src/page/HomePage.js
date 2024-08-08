@@ -8,6 +8,7 @@ import ProductCarousel from './ProductCarousel'
 import productApi from 'api/productApi'
 import Catagories from './Catagories'
 import Secssion2 from './Secssion2'
+import ScrollToTop from 'components/scrollToTop/ScrollToTop'
 
 
 export default function HomePage() {
@@ -31,7 +32,7 @@ export default function HomePage() {
             <Catagories />
             <Secssion2 />
             <Secssion1 />
-
+            <ScrollToTop />
             <Footer />
         </>
     )

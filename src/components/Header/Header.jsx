@@ -19,22 +19,83 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1000,
     backgroundColor: '#fff',
     borderBottom: '1px solid #ccc',
+    paddingTop: '40px',
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: '30px',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingTop: '15px',
+    },
   },
   root: {
     flexGrow: 1,
+    width: '60%',
+    margin: '0 auto',
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  img: {
+    width: '18%',
+    [theme.breakpoints.up('md')]: {
+      width: '8%',
+    },
+  },
+  search: {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#f1f1f1',
+    borderRadius: theme.shape.borderRadius,
+    padding: '5px 10px',
+    maxWidth: '100%',
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '400px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '250px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '60px',
+      overflow: 'hidden',
+    },
+  },
+  input: {
+    border: 'none',
+    outline: 'none',
+    flex: 1,
+    padding: '5px',
+    fontSize: '14px',
+    backgroundColor: 'transparent',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+
+    },
+  },
+  iconButton: {
+    marginRight: theme.spacing(1),
+    fontSize: '1.2rem',
+    color: '#000',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1rem',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.2rem',
+    },
+  },
+  shoppingCartIcon: {
+    fontSize: '1.8rem',
+  },
+  accountCircleIcon: {
+    fontSize: '1.8rem',
   },
   title: {
     flexGrow: 1,
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'left',
+    },
   },
   link: {
-    color: '#fff',
+    color: '#000',
     textDecoration: 'none',
-  },
-  img: {
-    width: '20%',
   },
 }));
 
@@ -84,24 +145,25 @@ const Header = () => {
           <Toolbar>
             <span className={classes.img}>
               <Link to="/">
-                <img src={logo} alt='logo' width="60%" />
+                <img src={logo} alt='logo' width="100%" />
               </Link>
             </span>
 
             <Typography variant="h6" className={classes.title}>
-              <Link className={classes.link} to="">
-                <div className={classes.search}>
-                  <div className='search-box f_flex'>
-                    <i className='fa fa-search'></i>
-                    <input type='text' placeholder='Search and hit enter...' />
-                    <span>All Category</span>
-                  </div>
-                </div>
-              </Link>
+              <div className={classes.search}>
+                <i className={`fa fa-search ${classes.iconButton}`}></i>
+                <input
+                  type="text"
+                  placeholder="Search and hit enter..."
+                  className={classes.input}
+                />
+                <Button color='primary'>Full</Button>
+              </div>
             </Typography>
-            <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleCartClick}>
+
+            <IconButton aria-label="cart" color="inherit" onClick={handleCartClick}>
               <Badge badgeContent={cartItemsCount} color="secondary">
-                <ShoppingCart />
+                <ShoppingCart className={classes.shoppingCartIcon} />
               </Badge>
             </IconButton>
 
@@ -113,7 +175,7 @@ const Header = () => {
 
             {isLoggedIn && (
               <IconButton color="inherit" onClick={handleUserClick}>
-                <AccountCircle />
+                <AccountCircle className={classes.accountCircleIcon} />
               </IconButton>
             )}
           </Toolbar>
