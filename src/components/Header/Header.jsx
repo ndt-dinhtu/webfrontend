@@ -1,3 +1,4 @@
+// src/components/Header.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
@@ -6,21 +7,23 @@ import { AppBar, Toolbar, Typography, IconButton, Button, Badge, Menu, MenuItem 
 import { AccountCircle, ShoppingCart } from '@material-ui/icons';
 import { logout } from 'features/Auth/userSlice';
 import { cartItemsCountSelector } from 'features/cart/selectors';
-import logo from '../../assets/logo.png';
+import logo from 'assets/logo.png';
 import Head from './Head';
 import LoginDialog from './LoginDialog';
 import NavBarHeader from './NavBarHeader';
 import Search from 'components/search/Search';
+import ThemeToggle from 'components/themeToggle/ThemeToggle';
 
 const useStyles = makeStyles((theme) => ({
   header: {
     position: 'fixed',
     top: 0,
     width: '100%',
-    zIndex: 1000,
-    backgroundColor: '#fff',
+    zIndex: 10,
+    backgroundColor: theme.palette.background.default, // Sử dụng theme từ Material-UI
+    color: theme.palette.text.primary, // Sử dụng theme từ Material-UI
     borderBottom: '1px solid #ccc',
-    paddingTop: '40px',
+    paddingTop: '10px',
     [theme.breakpoints.up('sm')]: {
       paddingTop: '30px',
     },
@@ -30,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     flexGrow: 1,
-    width: '60%',
+    width: '80%',
+    maxWidth: '1200px',
     margin: '0 auto',
   },
   img: {
@@ -42,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   search: {
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: '#f1f1f1',
+    backgroundColor: theme.palette.background.paper, // Sử dụng theme từ Material-UI
     borderRadius: theme.shape.borderRadius,
     padding: '5px 10px',
     maxWidth: '100%',
@@ -62,8 +66,7 @@ const useStyles = makeStyles((theme) => ({
     border: 'none',
     outline: 'none',
     flex: 1,
-    padding: '5px',
-    fontSize: '14px',
+    fontSize: '10px',
     backgroundColor: 'transparent',
     [theme.breakpoints.down('xs')]: {
       display: 'none',
@@ -72,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
   iconButton: {
     marginRight: theme.spacing(1),
     fontSize: '1.2rem',
-    color: '#000',
+    color: theme.palette.text.primary, // Sử dụng theme từ Material-UI
     [theme.breakpoints.down('sm')]: {
       fontSize: '1rem',
     },
@@ -94,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    color: '#000',
+    color: theme.palette.text.primary, // Sử dụng theme từ Material-UI
     textDecoration: 'none',
   },
 }));
@@ -109,7 +112,6 @@ const Header = () => {
 
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -135,8 +137,6 @@ const Header = () => {
     history.push('/cart');
   };
 
-
-
   return (
     <div className={classes.header}>
       <Head />
@@ -152,11 +152,11 @@ const Header = () => {
 
             <Typography variant="h6" className={classes.title}>
               <div className={classes.search}>
-
                 <Search />
               </div>
             </Typography>
 
+            <ThemeToggle />
 
             <IconButton aria-label="cart" color="inherit" onClick={handleCartClick}>
               <Badge badgeContent={cartItemsCount} color="secondary">

@@ -33,13 +33,19 @@ const useStyles = makeStyles((theme) => ({
         display: 'grid',
         gap: '16px',
         gridTemplateColumns: 'repeat(2, 1fr)',
-        '@media (min-width: 400px)': {
-            gridTemplateColumns: 'repeat(3, 1fr)',
+        '@media (min-width: 450px)': {
+            gridTemplateColumns: 'repeat(2, 1fr)',
         },
         '@media (min-width: 600px)': {
+            gridTemplateColumns: 'repeat(3, 1fr)',
+        },
+        '@media (min-width: 700px)': {
             gridTemplateColumns: 'repeat(4, 1fr)',
         },
         '@media (min-width: 960px)': {
+            gridTemplateColumns: 'repeat(4, 1fr)',
+        },
+        '@media (min-width: 1000px)': {
             gridTemplateColumns: 'repeat(6, 1fr)',
         },
     },

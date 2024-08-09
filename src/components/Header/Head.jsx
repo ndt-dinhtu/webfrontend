@@ -4,20 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     header: {
         position: 'fixed',
-        top: 0,
+        top: '-3px',
         width: '100%',
         zIndex: 1000,
         backgroundColor: '#0f3460',
         color: '#fff',
         borderBottom: '1px solid #ccc',
-        padding: '5px 0', 
+        padding: '1px 0px',
+
     },
     container: {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '60%', 
-        margin: '0 auto', 
+        width: '60%',
+        margin: '0 auto',
         boxSizing: 'border-box',
     },
     left: {
@@ -31,19 +32,19 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap',
     },
     icon: {
-        margin: '0 5px', 
-        fontSize: '12px', 
+        margin: '0 5px',
+        fontSize: '12px',
     },
     label: {
         margin: '0 5px',
-        fontSize: '12px', 
+        fontSize: '12px',
     },
     // Responsive Styles
     '@media (max-width: 768px)': {
         container: {
             flexDirection: 'column',
             alignItems: 'flex-start',
-            width: '80%', 
+            width: '80%',
         },
         left: {
             justifyContent: 'flex-start',
@@ -55,14 +56,14 @@ const useStyles = makeStyles((theme) => ({
     },
     '@media (max-width: 480px)': {
         container: {
-            width: '90%', 
+            width: '90%',
         },
         icon: {
-            fontSize: '10px', 
+            fontSize: '10px',
         },
         label: {
-            fontSize: '10px', 
-            margin: '0 3px', 
+            fontSize: '10px',
+            margin: '0 3px',
         },
     },
 }));

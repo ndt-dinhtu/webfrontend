@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     header2: {
         display: 'flex',
         justifyContent: 'center',
-        padding: '5px 0',
+        padding: '0px',
     },
     navbarContainer: {
         maxWidth: '800px',
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     navbarToggler: {
-        padding: '0.15rem 0.3rem',
+        padding: '0 1rem',
     },
 }));
 
@@ -122,6 +122,14 @@ const NavBarHeader = () => {
                                     ))}
                                 </DropdownMenu>
                             </UncontrolledDropdown>
+                            <NavItem>
+                                <Link
+                                    to="/cart"
+                                    className={`${classes.navLink} ${activeTab === '/cart' ? classes.activeNavLink : ''}`}
+                                >
+                                    GIỎ HÀNG
+                                </Link>
+                            </NavItem>
                             <NavItem>
                                 <Link
                                     to="/news"

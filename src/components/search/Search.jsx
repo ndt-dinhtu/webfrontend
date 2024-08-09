@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { TextField, List, ListItem, Dialog, DialogTitle, DialogContent, Typography, Button } from '@material-ui/core';
+import { List, ListItem, Dialog, DialogTitle, DialogContent, Typography } from '@material-ui/core';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         backgroundColor: '#f1f1f1',
         borderRadius: theme.shape.borderRadius,
-        padding: '5px 10px',
+        padding: '0px 10px',
         maxWidth: '100%',
         width: '100%',
         [theme.breakpoints.up('md')]: {
@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
         border: 'none',
         outline: 'none',
         flex: 1,
-        padding: '5px',
+        width: '70%',
+        padding: '0px',
         fontSize: '14px',
         backgroundColor: 'transparent',
         [theme.breakpoints.down('xs')]: {
@@ -101,15 +102,12 @@ const Search = () => {
         const query = event.target.value;
         setSearchQuery(query);
 
-        if (query.trim()) {
-            // Filter products based on search query
-            const results = products.filter((product) =>
-                product.name.toLowerCase().includes(query.toLowerCase())
-            );
-            setSearchResults(results);
-        } else {
-            setSearchResults([]);
-        }
+
+        const results = products.filter((product) =>
+            product.name.trim().toLowerCase().includes(query.toLowerCase().trim())
+        );
+        setSearchResults(results);
+
     };
 
     const handleProductSelect = (product) => {

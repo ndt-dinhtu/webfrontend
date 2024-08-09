@@ -1,0 +1,20 @@
+/* src/App.css */
+.app {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app.light-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+.app.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Cập nhật CSS cho header */
+.header {
+    background-color: inherit;
+    /* sẽ thay đổi dựa trên lớp của .app */
+}

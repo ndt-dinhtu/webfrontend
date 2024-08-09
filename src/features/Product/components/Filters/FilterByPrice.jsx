@@ -57,7 +57,7 @@ function FilterByPrice({ onChange }) {
     };
 
     const handleSubmit = () => {
-        if (onChange) onChange(values);
+        if (onChange) {onChange(values)};
         setValues({ salePrice_gte: '', salePrice_lte: '' });
     };
 
