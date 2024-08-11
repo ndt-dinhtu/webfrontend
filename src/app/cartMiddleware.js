@@ -12,3 +12,4 @@ const cartMiddleware = (store) => (next) => (action) => {
 };
 
 export default cartMiddleware;
+    
