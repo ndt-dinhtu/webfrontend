@@ -48,7 +48,7 @@ const useStyles = makeStyles({
         paddingTop: '20px',
         fontSize: '2.2rem',
         textAlign: 'center',
-        marginBottom: '20px', // Thêm khoảng cách phía dưới để tách biệt với phần slider
+        marginBottom: '20px',
     },
     img: {
         maxWidth: '100%',
