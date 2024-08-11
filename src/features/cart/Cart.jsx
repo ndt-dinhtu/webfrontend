@@ -10,7 +10,6 @@ import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
 import ModalThanhToan from 'page/Checkout';
 
-
 const useStyles = makeStyles(() => ({
     productImage: {
         width: '80px',
@@ -51,6 +50,10 @@ const useStyles = makeStyles(() => ({
         width: '100%',
         marginBottom: '10px',
     },
+    errorMessage: {
+        color: 'red',
+        marginTop: '10px',
+    },
 }));
 
 const DISCOUNT_CODES = {
@@ -62,7 +65,6 @@ const DISCOUNT_CODES = {
     GIAMGIA30: 0.30,
     GIAMGIA35: 0.35,
     GIAMGIA40: 0.40,
-
 };
 
 function Cart() {
@@ -73,6 +75,7 @@ function Cart() {
     const [discountCode, setDiscountCode] = useState('');
     const [shippingFee] = useState(0);
     const [discountAmount, setDiscountAmount] = useState(0);
+    const [errorMessage, setErrorMessage] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
 
     const handleQuantityChange = (id, value) => {
@@ -86,7 +89,12 @@ function Cart() {
 
     const handleApplyDiscount = () => {
         const discount = DISCOUNT_CODES[discountCode.toUpperCase()] || 0;
-        setDiscountAmount(discount);
+        if (discount > 0) {
+            setDiscountAmount(discount);
+            setErrorMessage('');
+        } else {
+            setErrorMessage('Mã giảm giá không hợp lệ, vui lòng thử lại.');
+        }
     };
 
     const toggleModal = () => setModalOpen(!modalOpen);
@@ -183,6 +191,7 @@ function Cart() {
                                 <ReactstrapButton color="primary" onClick={handleApplyDiscount}>
                                     Áp dụng
                                 </ReactstrapButton>
+                                {errorMessage && <p className={classes.errorMessage}>{errorMessage}</p>}
                             </FormGroup>
                             <p>Tổng tiền: {formatPrice(cartTotal)}</p>
                             <p>Giảm giá: {formatPrice(cartTotal * discountAmount)}</p>
