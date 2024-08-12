@@ -20,7 +20,7 @@ import emailjs from 'emailjs-com'
 
 const Footer = () => {
     const [email, setEmail] = useState('')
-    
+
     return (
         <footer className="footer bg-light text-dark pt-5 pb-4">
             <Container>
@@ -89,7 +89,7 @@ const Footer = () => {
                                 <Button type="submit" color="primary" className='my-1' onClick={(e) => {
                                     e.preventDefault()
                                     const templateParams = {
-                                        yourEmail : email
+                                        yourEmail: email
                                     }
                                     emailjs.send('service_qysjphj', 'template_1bmdxcj', templateParams, 'mahQRLPo4LB7SOT01')
                                         .then((res) => {
@@ -159,7 +159,8 @@ const Footer = () => {
             <div className='footerText'>
                 <p className='footerText__a'>
                     <a href='https://tiki.vn/' target='_blank' rel='noopener noreferrer '><span>Tiki</span></a>
-                    <a href='https://www.samsung.com/vn/' target='_blank' rel='noopener noreferrer '><span>Shoppe</span></a>                   <a href='' target='_blank' rel='noopener noreferrer '>  <span>Lazada</span></a>
+                    <a href='https://www.samsung.com/vn/' target='_blank' rel='noopener noreferrer '><span>Shoppe</span></a>
+                    <a href='https://lazada.vn/' target='_blank' rel='noopener noreferrer '>  <span>Lazada</span></a>
                     <a href='https://tiki.vn/' target='_blank' rel='noopener noreferrer '><span>SamSung</span></a>
                     <a href='https://www.apple.com/' target='_blank' rel='noopener noreferrer '><span>Apple</span></a>
                     <a href='https://www.amazon.com' target='_blank' rel='noopener noreferrer '><span>Amazon</span></a>
