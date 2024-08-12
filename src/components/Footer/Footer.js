@@ -20,6 +20,7 @@ import emailjs from 'emailjs-com'
 
 const Footer = () => {
     const [email, setEmail] = useState('')
+    
     return (
         <footer className="footer bg-light text-dark pt-5 pb-4">
             <Container>
@@ -87,15 +88,16 @@ const Footer = () => {
                                 />
                                 <Button type="submit" color="primary" className='my-1' onClick={(e) => {
                                     e.preventDefault()
-                                    emailjs.send('service_qysjphj', 'template_1bmdxcj', {
-                                        yourEmail: email
-                                    }, 'mahQRLPo4LB7SOT01')
+                                    const templateParams = {
+                                        yourEmail : email
+                                    }
+                                    emailjs.send('service_qysjphj', 'template_1bmdxcj', templateParams, 'mahQRLPo4LB7SOT01')
                                         .then((res) => {
                                             console.log(res)
                                             alert('Thanh cong')
                                         })
                                         .catch((error) => {
-                                            alert('Loi r thang ngu')
+                                            alert('Đã xảy ra lỗi phát sinh')
                                         })
                                 }}>Đăng Ký</Button>
                             </FormGroup>
