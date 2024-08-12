@@ -1,8 +1,9 @@
 import { Button, makeStyles, TextField } from '@material-ui/core';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Container } from 'reactstrap';
+import emailjs from 'emailjs-com'
 // import emailjs from '@emailjs/browser';
 const useStyles = makeStyles((theme) => ({
     i: {
@@ -56,25 +57,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+
 export default function Contact() {
     const classes = useStyles()
-    // const form = useRef();
-    // const sendEmail = (e) => {
-    //     e.preventDefault();
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [content, setContent] = useState('')
 
-    //     emailjs
-    //         .sendForm('service_qysjphj', 'template_xy0g58a', form.current, {
-    //             publicKey: 'mahQRLPo4LB7SOT01',
-    //         })
-    //         .then(
-    //             () => {
-    //                 console.log('SUCCESS!');
-    //             },
-    //             (error) => {
-    //                 console.log('FAILED...', error.text);
-    //             },
-    //         );
-    // };
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const templateParams = {
+            name: name,
+            email: email,
+            phone: phone,
+            content: content,
+        }
+
+        emailjs
+            .send('service_qysjphj', 'template_xy0g58a', templateParams, 'mahQRLPo4LB7SOT01')
+            .then((res) => {
+                console.log(res)
+                alert('Thanh cong')
+            })
+            .catch((error) => {
+                alert('Đã xảy ra lỗi phát sinh')
+            })
+    };
     return (
         <>
             <Header />
@@ -114,6 +124,8 @@ export default function Contact() {
                             variant="filled"
                             name="name"
                             className={classes.textField}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                         <TextField
                             id="filled-basic"
@@ -121,6 +133,8 @@ export default function Contact() {
                             variant="filled"
                             name="email"
                             className={classes.textField}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                         <TextField
                             id="filled-basic"
@@ -128,6 +142,8 @@ export default function Contact() {
                             variant="filled"
                             name="phone"
                             className={classes.textField}
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
                         />
                         <TextField
                             id="filled-basic"
@@ -137,8 +153,10 @@ export default function Contact() {
                             multiline
                             rows={4}
                             className={classes.textField}
+                            value={content}
+                            onChange={(e) => setContent(e.target.value)}
                         />
-                        <Button type="submit" variant="contained" className={classes.button}>
+                        <Button type="submit" variant="contained" className={classes.button} onClick={sendEmail}>
                             GỬI CHO CHÚNG TÔI
                         </Button>
                     </form>
