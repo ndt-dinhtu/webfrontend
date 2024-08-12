@@ -1,4 +1,4 @@
-import { Box, Typography, Button as MuiButton } from '@material-ui/core';
+import { Box, Typography, Button as MuiButton, Tooltip } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,7 +7,6 @@ import { formatPrice } from 'utils';
 import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from 'constants/index';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'features/cart/cartSlice';
-
 
 const useStyles = makeStyles((theme) => ({
   productContainer: {
@@ -54,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
   },
+  tooltip: {
+    fontSize: '1.2rem', // Tăng kích thước chữ trong Tooltip
+  },
 }));
 
 Product.propTypes = {
@@ -82,9 +84,11 @@ function Product({ product }) {
   return (
     <Box className={classes.productContainer} padding={1}>
       <div onClick={handleClick1}>
-        <Box padding={1} minHeight={'215px'}>
-          <img src={thumbnailUrl} alt={product.name} width="100%" />
-        </Box>
+        <Tooltip title={product.name} placement='top' classes={{ tooltip: classes.tooltip }}>
+          <Box padding={1} minHeight={'215px'}>
+            <img src={thumbnailUrl} alt={product.name} width="100%" />
+          </Box>
+        </Tooltip>
 
         <Typography variant="body2" className={classes.productName}>
           {product.name}
