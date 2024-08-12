@@ -11,6 +11,7 @@ import News from 'page/News';
 import ProductFeature from 'features/Product';
 import ScrollToTop from 'components/scrollToTop/ScrollToTop';
 import './App.css';
+import TelButton from 'page/TelButton';
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,7 @@ function App() {
   return (
     <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}> { }
       <ScrollToTop />
+      <TelButton/>
 
       <Switch>
         <Redirect from="/home" to="/" exact />

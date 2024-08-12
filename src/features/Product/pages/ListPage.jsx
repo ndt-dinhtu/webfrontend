@@ -55,7 +55,7 @@ function ListPage(props) {
   const [productList, setProductList] = useState([]);
   const [pagination, setPagination] = useState({
     limit: 12,
-    total: 10,
+    total: 14,
     page: 1,
   });
   const [loading, setLoading] = useState(true);

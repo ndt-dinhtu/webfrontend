@@ -101,13 +101,9 @@ const useStyles = makeStyles((theme) => ({
 const items = [
     {
         src: hero_1,
-        altText: 'Slide 1',
-        caption: 'Caption for Slide 1'
     },
     {
         src: hero_2,
-        altText: 'Slide 2',
-        caption: 'Caption for Slide 2'
     }
 ];
 

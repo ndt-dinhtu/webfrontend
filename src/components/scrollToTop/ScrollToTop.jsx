@@ -6,9 +6,10 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 const useStyles = makeStyles((theme) => ({
     scrollToTop: {
         position: 'fixed',
-        bottom: theme.spacing(2),
-        right: theme.spacing(2),
+        bottom: theme.spacing(4),
+        right: theme.spacing(3.3),
         zIndex: 1000,
+        padding: '15px',
         backgroundColor: '#007bff',
         color: '#fff',
         '&:hover': {
